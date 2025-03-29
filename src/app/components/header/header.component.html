@@ -1,0 +1,26 @@
+<nav class="navbar">
+    <!-- Logo -->
+    <div class="logo">
+      <img src="../../../assets/queueless-Logo.png" alt="Queueless Logo" />
+    </div>
+  
+    <!-- Menu Toggle Button (for Mobile) -->
+    <button class="menu-toggle" (click)="toggleMenu()">
+      ☰
+    </button>
+  
+    <!-- Navigation Links -->
+    <ul class="nav-links" [class.active]="menuOpen">
+        <li><a routerLink="/" (click)="scrollToSection('home')">Home</a></li>
+        <li><a routerLink="/how-it-works" fragment="howItWorks" (click)="navigateToSection('/landing', 'howItWorks')">How It Works</a></li>
+        <li><a routerLink="/reviews" fragment="reviews" (click)="navigateToSection('/reviews-section', 'reviews')">Reviews</a></li>
+        <li><a routerLink="/contact" fragment="contact" (click)="navigateToSection('/contact', 'contact')">Contact Us</a></li>    
+    </ul>
+  
+    <!-- Authentication Buttons -->
+    <div class="auth-buttons">
+      <a href="#" class="login">Login</a>
+      <a href="#" class="signup">Sign up</a>
+    </div>
+  </nav>
+  

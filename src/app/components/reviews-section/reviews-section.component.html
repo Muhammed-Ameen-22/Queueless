@@ -1,0 +1,37 @@
+<section class="reviews-section" id="reviews">
+    <h2 class="section-title">Customer & Shop Owner Reviews</h2>
+  
+    <div class="reviews-container">
+      <!-- Customer Reviews Row -->
+      <div class="review-card" *ngFor="let review of customerReviews">
+        <div class="review-header">
+          <div class="review-author">
+            <img [src]="review.avatar" alt="Customer Avatar" class="avatar" />
+            <h3 class="author-name">{{ review.name }}</h3>
+          </div>
+          <div class="review-stars">
+            <ng-container *ngFor="let star of stars(review.rating)">
+              <i class="fa fa-star" aria-hidden="true"></i>
+            </ng-container>
+          </div>
+        </div>
+        <p class="review-text">{{ review.review }}</p>
+      </div>
+  
+      <!-- Shop Owner Reviews Row -->
+      <div class="review-card" *ngFor="let review of ownerReviews">
+        <div class="review-header">
+          <div class="review-author">
+            <img [src]="review.avatar" alt="Shop Owner Avatar" class="avatar" />
+            <h3 class="author-name">{{ review.name }}</h3>
+          </div>
+          <div class="review-stars">
+            <ng-container *ngFor="let star of stars(review.rating)">
+              <i class="fa fa-star" aria-hidden="true"></i>
+            </ng-container>
+          </div>
+        </div>
+        <p class="review-text">{{ review.review }}</p>
+      </div>
+    </div>
+  </section>

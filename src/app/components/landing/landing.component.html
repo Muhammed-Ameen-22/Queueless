@@ -1,0 +1,42 @@
+<section class="hero">
+  <div class="hero-content">
+    <p class="trial-text">SIMPLE. CONVENIENT. FAST.</p>
+    <h1 class="hero-title">Your Neighborhood Kirana Store, Just a Click Away.</h1>
+    <p class="hero-subtitle">
+        Shop easily, order online, and just pick up from your local store.
+    </p>
+    <div class="hero-buttons">
+      <button class="btn btn-primary">Start Shopping</button>
+      <button class="btn btn-secondary" (click)="scrollToHowItWorks()">
+        <span>&#9654;</span> See How It Works
+      </button>
+    </div>
+  </div>
+  <div class="hero-image">
+    <img src="assets/landing-image-person.jpg" alt="Hero Image" />
+  </div>
+  <div class="how-it-works" id="howItWorks"  #howItWorksSection>
+    <h2>How It Works</h2>
+    <p>Follow these simple steps to get your groceries hassle-free!</p>
+  
+    <div class="tabs">
+        <button [ngClass]="{'active': selectedTab === 'customer'}" (click)="selectedTab = 'customer'">For Customers</button>
+        <button [ngClass]="{'active': selectedTab === 'shopOwner'}" (click)="selectedTab = 'shopOwner'">For Shop Owners</button>
+      </div>
+      
+  
+    <div class="steps-container">
+      <div *ngFor="let step of (selectedTab === 'customer' ? customerSteps : shopOwnerSteps)" class="step">
+        <div class="icon-container">
+          <mat-icon>{{ step.icon }}</mat-icon>
+        </div>
+        <div class="text-container">
+          <h3>{{ step.title }}</h3>
+          <p>{{ step.description }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <app-reviews-section></app-reviews-section>
+</section>
