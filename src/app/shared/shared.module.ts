@@ -3,6 +3,6 @@ import { NgxTypedJsModule } from 'ngx-typed-js';
 
 @NgModule({
   imports: [NgxTypedJsModule],
-  exports: [NgxTypedJsModule] // Export for use in standalone components
+  exports: [NgxTypedJsModule]
 })
 export class SharedModule { }

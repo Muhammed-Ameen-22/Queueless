@@ -1,0 +1,114 @@
+.signup-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-image: url('../../../assets/landing-image-person.jpg');
+    background-size: cover;
+    background-position: center;
+    padding: 20px;
+  }
+  
+  .signup-card {
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+    border-radius: 12px;
+    padding: 30px;
+    max-width: 400px;
+    width: 100%;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  
+  .title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  .google-signup {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    width: 100%;
+    margin-bottom: 10px;
+  }
+  
+  google-signup img {
+    width: 20px;
+    margin-right: 10px;
+  }
+  
+  .or-divider {
+    margin: 10px 0;
+    font-size: 14px;
+    color: #777;
+  }
+  
+  .user-type-selector {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+  }
+  
+  .user-type-selector button {
+    flex: 1;
+    padding: 10px;
+    margin: 0 5px;
+    border-radius: 8px;
+    border: none;
+    background: #ddd;
+    cursor: pointer;
+  }
+  
+  .user-type-selector button.active {
+    background: #6c5ce7;
+    color: white;
+  }
+  
+  .form-group {
+    text-align: left;
+    margin-bottom: 15px;
+  }
+  
+  .form-group label {
+    font-size: 14px;
+    font-weight: 600;
+  }
+  
+  .form-group input {
+    width: 100%;
+    padding: 8px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    margin-top: 5px;
+  }
+  
+  .signup-btn {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    background: #6c5ce7;
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+  }
+  
+  .redirect {
+    margin-top: 10px;
+    font-size: 14px;
+  }
+  
+  .redirect a {
+    color: #6c5ce7;
+    text-decoration: none;
+    font-weight: bold;
+  }

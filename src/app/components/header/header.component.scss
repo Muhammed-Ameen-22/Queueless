@@ -1,4 +1,4 @@
-/* Navbar Container */
+
 .navbar {
     display: flex;
     justify-content: space-between;
@@ -10,12 +10,11 @@
   }
 
   
-  /* Logo */
   .logo img {
     height: 150px;
   }
   
-  /* Navigation Links */
+
   .nav-links {
     list-style: none;
     display: flex;
@@ -36,7 +35,7 @@
     color: #333;
   }
   
-  /* Authentication Buttons */
+
   .auth-buttons {
     display: flex;
     align-items: center;
@@ -61,8 +60,7 @@
   .signup:hover {
     background-color: #e55a00;
   }
-  
-  /* Mobile Menu Button */
+
   .menu-toggle {
     display: none;
     font-size: 28px;
@@ -75,7 +73,7 @@
     z-index: 1000;
   }
   
-  /* Responsive Styles */
+
   @media screen and (max-width: 768px) {
     .menu-toggle {
       display: block;

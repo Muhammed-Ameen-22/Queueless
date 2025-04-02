@@ -1,0 +1,37 @@
+<div class="popup-overlay">
+    <div class="popup">
+      <button class="close-button" (click)="closePopup()">×</button>
+      <h3>Login</h3>
+      <form [formGroup]="signInForm" (ngSubmit)="login()">
+        <div class="email-container">
+          <label for="email">Email:</label>
+          <input type="email" id="email" formControlName="email" required />
+          <div *ngIf="signInForm.get('email')?.invalid && signInForm.get('email')?.touched" class="error">
+            <div *ngIf="signInForm.get('email')?.errors?.['required']">Email is required</div>
+            <div *ngIf="signInForm.get('email')?.errors?.['email']">Invalid email format</div>
+          </div>
+        </div>
+        <div class="password-container">
+          <label for="password">Password:</label>
+          <input [type]="passwordVisible ? 'text' : 'password'" id="password" formControlName="password" required />
+          <button class="eye-button" type="button" (click)="togglePasswordVisibility()">
+            {{ passwordVisible ? '👁️' : '👁️‍🗨️' }}
+          </button>
+          <div *ngIf="signInForm.get('password')?.invalid && signInForm.get('password')?.touched" class="error">
+            <div *ngIf="signInForm.get('password')?.errors?.['required']">Password is required</div>
+            <div *ngIf="signInForm.get('password')?.errors?.['minlength']">Password must be at least 6 characters</div>
+          </div>
+          <div class="forgot-password">
+            <a href="#">Forgot Password?</a>
+          </div>
+        </div>
+        <div>
+          <button type="submit" class="login-button">Login</button>
+        </div>
+        <div class="sign-up">
+            <span>Not a member? </span>
+            <a href="#" (click)="goToSignUp()">Sign up</a> 
+        </div>
+      </form>
+    </div>
+  </div>

@@ -1,10 +1,11 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatIconModule } from '@angular/material/icon'; 
+import { HeaderComponent } from '../header/header.component';
 import { ReviewsSectionComponent } from '../reviews-section/reviews-section.component';
 @Component({
   selector: 'app-landing',
-  imports: [CommonModule,MatIconModule,ReviewsSectionComponent],
+  imports: [CommonModule,MatIconModule,HeaderComponent,ReviewsSectionComponent],
   templateUrl: './landing.component.html',
   styleUrl: './landing.component.scss'
 })
@@ -34,7 +35,7 @@ export class LandingComponent {
       const elementPosition = this.howItWorksSection.nativeElement.getBoundingClientRect().top + window.scrollY;
       const startPosition = window.scrollY;
       const distance = elementPosition - startPosition;
-      const duration = 800; // Adjust for speed (800ms = 0.8s)
+      const duration = 800; 
       let startTime: number | null = null;
   
       function animation(currentTime: number) {
@@ -62,7 +63,7 @@ export class LandingComponent {
 
   ngOnInit() {
     setTimeout(() => {
-      this.hydrated = true; // Ensures hydration to fix any SSR issues
+      this.hydrated = true; 
     }, 0);
   }
   

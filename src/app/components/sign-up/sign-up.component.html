@@ -1,0 +1,63 @@
+<div class="signup-container" style="background-image: url('assets/background.png'); background-size: cover; background-position: center;">
+    <div class="signup-card">
+      <h2 class="title">Sign Up</h2>
+      <!-- <button class="google-signup">
+        <img src="assets/google-icon.png" alt="Google Logo"> Sign in with Google
+      </button>
+      <p class="or-divider">or</p> -->
+      
+      <div class="user-type-selector">
+        <button (click)="setUserType('customer')" [class.active]="userType === 'customer'">Customer</button>
+        <button (click)="setUserType('owner')" [class.active]="userType === 'owner'">Shop Owner</button>
+      </div>
+  
+      <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+        <div *ngIf="userType === 'customer'">
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" id="name" formControlName="name" placeholder="Enter your name">
+          </div>
+  
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" formControlName="email" placeholder="Enter your email">
+          </div>
+          
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" id="password" formControlName="password" placeholder="Enter your password">
+          </div>
+        </div>
+        
+        <div *ngIf="userType === 'owner'">
+          <div class="form-group">
+            <label for="shopName">Shop Name</label>
+            <input type="text" id="shopName" formControlName="shopName" placeholder="Enter shop name">
+          </div>
+          
+          <div class="form-group">
+            <label for="shopImage">Shop Image</label>
+            <input type="file" id="shopImage" (change)="onFileChange($event)" accept="image/*">
+          </div>
+          
+          <div class="form-group">
+            <label for="fssaiCode">FSSAI Code</label>
+            <input type="text" id="fssaiCode" formControlName="fssaiCode" placeholder="Enter FSSAI Code">
+          </div>
+          
+          <div class="form-group">
+            <label for="location">Location</label>
+            <input type="text" id="location" formControlName="location" placeholder="Enter location">
+          </div>
+        </div>
+        
+        <button type="submit" class="signup-btn" [disabled]="signupForm.invalid">Sign Up</button>
+      </form>
+      
+      <p class="redirect">Already have an account? <a routerLink="/sign-in">Sign in</a></p>
+    </div>
+    <div class="signup-illustration">
+      <img [src]="userType === 'customer' ? customerImage : ownerImage" alt="Illustration">
+    </div>
+  </div>
+  

@@ -1,13 +1,20 @@
 import { Component } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
+import { SignInDialogComponent } from '../dialogs/sign-in-dialog/sign-in-dialog.component';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-header',
+  standalone: true,
+  imports: [SignInDialogComponent ,CommonModule],
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent {
+  
   menuOpen = false;
+  isPopupVisible = false; 
+
   constructor(private router: Router) {
     this.router.events.subscribe(event => {
       if (event instanceof NavigationEnd) {
@@ -18,6 +25,11 @@ export class HeaderComponent {
       }
     });
   }
+
+  togglePopup() {
+    this.isPopupVisible = !this.isPopupVisible; 
+  }
+  
 
   toggleMenu() {
     this.menuOpen = !this.menuOpen;
@@ -40,4 +52,11 @@ export class HeaderComponent {
       section.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
   }
+
+  goToSignUp(event: Event) {
+    event.preventDefault();
+    console.log('Navigating to Sign Up');
+    this.router.navigate(['/sign-up']);
+  }  
+  
 }

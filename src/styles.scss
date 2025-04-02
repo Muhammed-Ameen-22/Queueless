@@ -6,3 +6,24 @@ body { margin: 0;
     background-color: #f8f9fa;
     
 }
+
+.cdk-overlay-container {
+    z-index: 9999 !important;
+    position: relative !important;
+    display: block !important;
+  }
+  
+  .cdk-overlay-backdrop {
+    background: rgba(0, 0, 0, 0.5) !important;
+  }
+  
+  .mat-mdc-dialog-container {
+    display: block !important;
+    opacity: 1 !important;
+  }
+  
+  .cdk-overlay-container:empty {
+    display: block !important;
+    visibility: visible !important;
+  }
+  

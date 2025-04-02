@@ -19,8 +19,11 @@
   
     <!-- Authentication Buttons -->
     <div class="auth-buttons">
-      <a href="#" class="login">Login</a>
-      <a href="#" class="signup">Sign up</a>
+        <a href="#" class="login" (click)="togglePopup()">Login</a>
+      <a href="#" class="signup" (click)="goToSignUp($event)">Sign up</a>
+
     </div>
   </nav>
   
+  <app-sign-in-dialog *ngIf="isPopupVisible" (close)="togglePopup()" >
+</app-sign-in-dialog>
