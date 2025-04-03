@@ -1,63 +1,105 @@
-<div class="signup-container" style="background-image: url('assets/background.png'); background-size: cover; background-position: center;">
-    <div class="signup-card">
-      <h2 class="title">Sign Up</h2>
-      <!-- <button class="google-signup">
-        <img src="assets/google-icon.png" alt="Google Logo"> Sign in with Google
-      </button>
-      <p class="or-divider">or</p> -->
-      
-      <div class="user-type-selector">
-        <button (click)="setUserType('customer')" [class.active]="userType === 'customer'">Customer</button>
-        <button (click)="setUserType('owner')" [class.active]="userType === 'owner'">Shop Owner</button>
+<div class="user-selection-container" *ngIf="!showSignup">
+  <h2>Select User Type</h2>
+  <div class="user-type-options">
+    <div class="user-type-card" (click)="setUserType('customer')" [class.active]="userType === 'customer'">
+      <div class="avatar">
+        <img src="../../../assets/customer.png" alt="Customer">
       </div>
-  
-      <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+      <div class="card-content">
+        <p>Customer</p>
+      </div>
+    </div>
+
+    <div class="user-type-card" (click)="setUserType('owner')" [class.active]="userType === 'owner'">
+      <div class="avatar">
+        <img class="shopOwner" src="../../../assets/owner-shop.png" alt="Shop Owner">
+      </div>
+      <div class="card-content">
+        <p>Shop Owner</p>
+      </div>
+    </div>
+  </div>
+  <button class="next-btn" [class.visible]="isButtonVisible" (click)="goToSignup()">
+    <div class="button-content">
+      <span class="next-arrow">→</span>
+    </div>
+  </button> 
+</div>
+
+<div class="signup-container" *ngIf="showSignup">
+  <div class="signup-card">
+    <div class="back-button-wrapper">
+      <button class="back-btn" (click)="goBack()">
+        <span class="back-arrow">←</span>
+        Back
+      </button>
+    </div>
+
+    <div class="signup-form-content">
+      <div class="form-section">
+        <h2 class="title">Create Account</h2>
         <div *ngIf="userType === 'customer'">
+        <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
           <div class="form-group">
-            <label for="name">Name</label>
-            <input type="text" id="name" formControlName="name" placeholder="Enter your name">
+            <label for="name">Full Name</label>
+            <input type="text" id="name" formControlName="name" placeholder="Enter your full name">
           </div>
-  
           <div class="form-group">
             <label for="email">Email Address</label>
             <input type="email" id="email" formControlName="email" placeholder="Enter your email">
           </div>
-          
           <div class="form-group">
             <label for="password">Password</label>
             <input type="password" id="password" formControlName="password" placeholder="Enter your password">
           </div>
-        </div>
-        
-        <div *ngIf="userType === 'owner'">
-          <div class="form-group">
-            <label for="shopName">Shop Name</label>
-            <input type="text" id="shopName" formControlName="shopName" placeholder="Enter shop name">
+
+          <div class="terms-checkbox">
+            <input type="checkbox" id="terms" name="terms">
+            <label for="terms">I agree to the <a href="#">terms of service</a> and <a href="#">privacy policy</a></label>
           </div>
-          
+
+          <button type="submit" class="signup-btn" [disabled]="signupForm.invalid">Sign Up</button>
+        </form>
+
+        <p class="account-redirect">Already have an account? <a routerLink="/sign-in">Sign in</a></p>
+      </div>
+
+      <div *ngIf="userType === 'owner'">
+        <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
           <div class="form-group">
-            <label for="shopImage">Shop Image</label>
-            <input type="file" id="shopImage" (change)="onFileChange($event)" accept="image/*">
+            <label for="name">Shop Name</label>
+            <input type="text" id="name" formControlName="shopName" placeholder="Enter your full name">
           </div>
-          
           <div class="form-group">
-            <label for="fssaiCode">FSSAI Code</label>
-            <input type="text" id="fssaiCode" formControlName="fssaiCode" placeholder="Enter FSSAI Code">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" formControlName="email" placeholder="Enter your email">
           </div>
-          
           <div class="form-group">
-            <label for="location">Location</label>
-            <input type="text" id="location" formControlName="location" placeholder="Enter location">
+            <label for="password">Password</label>
+            <input type="password" id="password" formControlName="password" placeholder="Enter your password">
           </div>
-        </div>
-        
-        <button type="submit" class="signup-btn" [disabled]="signupForm.invalid">Sign Up</button>
-      </form>
-      
-      <p class="redirect">Already have an account? <a routerLink="/sign-in">Sign in</a></p>
-    </div>
-    <div class="signup-illustration">
-      <img [src]="userType === 'customer' ? customerImage : ownerImage" alt="Illustration">
+
+          <div class="terms-checkbox">
+            <input type="checkbox" id="terms" name="terms">
+            <label for="terms">I agree to the <a href="#">terms of service</a> and <a href="#">privacy policy</a></label>
+          </div>
+
+          <button type="submit" class="signup-btn" [disabled]="signupForm.invalid">Sign Up</button>
+        </form>
+
+        <p class="account-redirect">Already have an account? <a routerLink="/sign-in">Sign in</a></p>
+      </div>
+
+      </div>
+
+      <div class="image-section" *ngIf="userType === 'customer'">
+        <img src="../../../assets/customer-set-2.png" alt="Signup Illustration">
+      </div>
+      <div class="image-section" *ngIf="userType === 'owner'">
+        <img src="../../../assets/owner-shop.png" alt="Signup Illustration">
+      </div>
+
     </div>
   </div>
-  
+</div>
+     

@@ -55,7 +55,6 @@ export class HeaderComponent {
 
   goToSignUp(event: Event) {
     event.preventDefault();
-    console.log('Navigating to Sign Up');
     this.router.navigate(['/sign-up']);
   }  
   

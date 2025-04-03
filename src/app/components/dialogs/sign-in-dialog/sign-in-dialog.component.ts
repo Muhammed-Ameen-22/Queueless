@@ -50,8 +50,10 @@ export class SignInDialogComponent {
     }
   }
 
-  goToSignUp() {
-    this.router.navigate(['/sign-up']); 
-  }
+  goToSignUp(event: Event) {
+    event.preventDefault();
+    this.close.emit();
+    this.router.navigate(['/sign-up']);
+  }  
 
 }
