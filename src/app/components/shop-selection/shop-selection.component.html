@@ -1,0 +1,19 @@
+<div class="filter-bar">
+    <select [(ngModel)]="selectedLocality" (change)="onFilterChange()">
+      <option value="">All Localities</option>
+      <option *ngFor="let loc of localities" [value]="loc">{{ loc }}</option>
+    </select>
+  
+    <input type="text" placeholder="Search items..." [(ngModel)]="searchText" (input)="onFilterChange()" />
+  </div>
+  
+  <div class="shop-cards">
+    <div class="shop-card" *ngFor="let shop of filteredShops">
+      <img [src]="shop.imageUrl" alt="{{ shop.name }}" />
+      <h3>{{ shop.name }}</h3>
+      <!-- <p>{{ shop.description }}</p> -->
+      <p><strong>Location:</strong> {{ shop.location }}</p>
+      <button (click)="viewShop(shop.id)">View Shop ➤</button>
+    </div>
+  </div>
+  

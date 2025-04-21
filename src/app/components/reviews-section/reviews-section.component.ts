@@ -47,7 +47,7 @@ export class ReviewsSectionComponent {
       name: 'Sneha Singh',
       avatar: 'assets/Shop.png',
       rating: 4,
-      review: 'A fantastic way to organize orders and boost sales.'
+      review: 'A fantastic way to organise orders and boost sales.'
     }
   ];
 

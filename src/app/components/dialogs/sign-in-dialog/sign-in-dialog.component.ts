@@ -42,6 +42,7 @@ export class SignInDialogComponent {
       if (email === 'test@example.com' && password === 'password123') {
         alert('Login successful!');
         this.closePopup();
+        this.router.navigate(['/shop']);
       } else {
         alert('Invalid email or password.');
       }
