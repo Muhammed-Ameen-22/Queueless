@@ -5,6 +5,7 @@ import { provideRouter } from '@angular/router';
 import { routes } from './app/app.routes';
 import { provideHttpClient } from '@angular/common/http';
 import {NgSelectModule } from '@ng-select/ng-select';
+import { BrowserAnimationsModule, provideAnimations } from '@angular/platform-browser/animations'; 
 
 bootstrapApplication(AppComponent, {
   ...appConfig, 
@@ -12,6 +13,8 @@ bootstrapApplication(AppComponent, {
     ...(appConfig.providers || []),
     provideRouter(routes),
     provideHttpClient() ,
-    NgSelectModule
+    NgSelectModule,
+    provideAnimations(),
+    BrowserAnimationsModule
   ]
 }).catch((err) => console.error(err));

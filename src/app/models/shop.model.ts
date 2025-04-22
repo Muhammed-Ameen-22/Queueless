@@ -3,5 +3,6 @@ export interface Shop {
     name: string;
     location: string;
     imageUrl: string;
+    // items: string[];
     locality: string;
   }

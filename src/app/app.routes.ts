@@ -3,6 +3,7 @@ import { LandingComponent } from './components/landing/landing.component';
 import { ReviewsSectionComponent } from './components/reviews-section/reviews-section.component';
 import { SignUpComponent } from './components/sign-up/sign-up.component';
 import { ShopSelectionComponent } from './components/shop-selection/shop-selection.component';
+import { OrderFromStoreComponent } from './components/order-from-store/order-from-store.component';
 
 export const routes: Routes = [
     { path: '', component: LandingComponent },
@@ -10,5 +11,7 @@ export const routes: Routes = [
     { path: 'reviews', component: ReviewsSectionComponent },
     { path: 'sign-up', component: SignUpComponent},
     { path:'shop', component:ShopSelectionComponent},
+    { path: 'order/:id', component: OrderFromStoreComponent },
+
     { path: '**', redirectTo: '' } 
   ];

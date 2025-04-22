@@ -1,17 +1,22 @@
-import { Component, ElementRef, ViewChild } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { Component, ElementRef, Inject, PLATFORM_ID, ViewChild } from '@angular/core';
+import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { MatIconModule } from '@angular/material/icon'; 
 import { ReviewsSectionComponent } from '../reviews-section/reviews-section.component';
+import { SignInDialogComponent } from '../dialogs/sign-in-dialog/sign-in-dialog.component';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-landing',
-  imports: [CommonModule,MatIconModule,ReviewsSectionComponent],
+  imports: [CommonModule,MatIconModule,ReviewsSectionComponent, SignInDialogComponent],
   templateUrl: './landing.component.html',
   styleUrl: './landing.component.scss'
 })
 export class LandingComponent {
   @ViewChild('howItWorksSection') howItWorksSection!: ElementRef;
+  constructor(private router: Router,@Inject(PLATFORM_ID) private platformId: Object){}
   selectedTab: 'customer' | 'shopOwner' = 'customer';
   hydrated = false;
+  userLoggedIn = false;
+  isPopupVisible = false; 
 
   customerSteps = [
     { icon: 'person', title: 'Sign Up / Log In', description: 'Create an account or log in to get started.' },
@@ -66,5 +71,20 @@ export class LandingComponent {
     }, 0);
   }
   
+
+  goToShopSelection(): void {
+    if (isPlatformBrowser(this.platformId)) {
+      const user = localStorage.getItem('user');
+      if (user) {
+        this.router.navigate(['/shop']);
+      } else {
+        this.togglePopup(); 
+      }
+    }
+  }
+
+  togglePopup(): void {
+    this.isPopupVisible = !this.isPopupVisible;
+  }
 
 }

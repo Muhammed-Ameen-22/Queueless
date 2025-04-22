@@ -1,1 +1,37 @@
-<p>order-from-store works!</p>
+<div class="product-list">
+    <mat-card class="product-card" *ngFor="let product of products">
+      <mat-card-header>
+        <mat-card-title>{{ product.name }}</mat-card-title>
+        <mat-card-subtitle>Base Price: ₹{{ product.price }}/kg</mat-card-subtitle>
+      </mat-card-header>
+      <img mat-card-image [src]="product.imageUrl" alt="{{ product.name }}" class="product-image" />
+      <mat-card-content>
+        <mat-form-field appearance="outline" class="quantity-select">
+            <mat-label>Quantity</mat-label>
+            <mat-select [value]="getQuantity(product)" (selectionChange)="onUnitChange(product, $event.value)">
+              <mat-option *ngFor="let option of quantityOptions" [value]="option">{{ option }}</mat-option>
+            </mat-select>
+          </mat-form-field>
+          
+  
+          <!-- <p>
+            <strong>Price:</strong>
+            {{
+              product.price * (unitMultipliers[getQuantity(product)] ?? 1)
+              | number: '1.2-2'
+            }}
+          </p> -->
+          
+      </mat-card-content>
+    </mat-card>
+  </div>
+  
+  <div class="cart-summary" *ngIf="cart.length > 0">
+    <h3>🛒 Cart Summary</h3>
+    <div *ngFor="let item of cart">
+      <p>{{ item.product.name }} ({{ item.quantityLabel }}) = ₹{{ item.product.price * item.multiplier | number:'1.2-2' }}</p>
+    </div>
+    <h4>Total: ₹{{ totalAmount | number:'1.2-2' }}</h4>
+    <button mat-raised-button color="primary" (click)="checkout()">Checkout</button>
+  </div>
+  

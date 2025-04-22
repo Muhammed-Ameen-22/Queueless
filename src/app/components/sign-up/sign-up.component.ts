@@ -18,7 +18,6 @@ export class SignUpComponent {
   showSignup = false;
   isButtonVisible = false; 
   cities: string[] = [];
-  // cityInput$ = new Subject<string>();
 
 
 

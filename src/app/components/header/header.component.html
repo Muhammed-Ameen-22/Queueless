@@ -18,10 +18,15 @@
     </ul>
   
     <!-- Authentication Buttons -->
-    <div class="auth-buttons">
-        <a href="#" class="login" (click)="togglePopup()">Login</a>
+    <div *ngIf="!userLoggedIn" class="auth-buttons">
+      <a href="#" class="login" (click)="togglePopup()">Login</a>
       <a href="#" class="signup" (click)="goToSignUp($event)">Sign up</a>
-
+    </div>
+    
+    <!-- Authenticated view -->
+    <div *ngIf="userLoggedIn" class="auth-buttons">
+      <span>Hi, {{ userEmail }}</span>
+      <a href="#" class="login" (click)="logout()">Logout</a>
     </div>
   </nav>
   

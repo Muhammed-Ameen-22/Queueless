@@ -4,13 +4,33 @@ import { ShopService } from '../../services/shop/shop.service';
 import { Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import {
+  trigger,
+  transition,
+  style,
+  animate,
+  query,
+  stagger,
+} from '@angular/animations';
 
 
 @Component({
   selector: 'app-shop-selection',
   imports: [FormsModule, CommonModule],
   templateUrl: './shop-selection.component.html',
-  styleUrl: './shop-selection.component.scss'
+  styleUrl: './shop-selection.component.scss',
+  // animations: [
+  //   trigger('fade', [
+  //     transition(':enter', [
+  //       style({ opacity: 0 }),
+  //       animate('300ms ease-in', style({ opacity: 1 })),
+  //     ]),
+  //     transition(':leave', [
+  //       animate('300ms ease-out', style({ opacity: 0 })),
+  //     ]),
+  //   ]),
+  // ],
+  
 })
 export class ShopSelectionComponent implements OnInit {
 
@@ -37,6 +57,6 @@ export class ShopSelectionComponent implements OnInit {
   }
 
   viewShop(id: number): void {
-    this.router.navigate(['/shop', id]);
+    this.router.navigate(['/order', id]);
   }
 }

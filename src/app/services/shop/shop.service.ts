@@ -25,15 +25,29 @@ export class ShopService {
       id: 3,
       name: 'Mary Stores',
       location: 'Kochi',
-      imageUrl: 'assets/store-2.webp',
+      imageUrl: 'assets/store-3.webp',
       locality: 'Fort Kochi'
     },
     {
       id: 4,
       name: 'Friends Stores',
       location: 'Kochi',
-      imageUrl: 'assets/store-2.webp',
+      imageUrl: 'assets/store-4.webp',
       locality: 'Fort Kochi'
+    },
+    {
+      id: 5,
+      name: 'Kochi Supermart',
+      location: 'Kochi',
+      imageUrl: 'assets/store-3.webp',
+      locality: 'MG Road'
+    },
+    {
+      id: 6,
+      name: 'Rajaji Traders',
+      location: 'Kochi',
+      imageUrl: 'assets/store-4.webp',
+      locality: 'Panampilly Nagar'
     }
   ];
 
